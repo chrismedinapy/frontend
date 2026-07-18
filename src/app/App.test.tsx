@@ -16,7 +16,7 @@ describe('App', () => {
 
   it.each([
     ['/dashboard', 'Dashboard en preparación'],
-    ['/customers', 'Módulo en preparación'],
+    ['/customers', 'Clientes'],
     ['/stores', 'Locales y mapa'],
     ['/uploads', 'Carga de archivos'],
   ])('renders the protected module at %s', (path, expected) => {
