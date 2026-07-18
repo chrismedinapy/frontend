@@ -15,7 +15,7 @@ describe('App', () => {
   })
 
   it.each([
-    ['/dashboard', 'Dashboard en preparación'],
+    ['/dashboard', 'Tu negocio, en perspectiva'],
     ['/customers', 'Clientes'],
     ['/stores', 'Locales y mapa'],
     ['/uploads', 'Carga de archivos'],
