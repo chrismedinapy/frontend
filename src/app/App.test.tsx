@@ -11,12 +11,12 @@ describe('App', () => {
 
   it('shows the authentication entry point for anonymous users', () => {
     render(<QueryClientProvider client={queryClient}><MemoryRouter initialEntries={['/login']}><App /></MemoryRouter></QueryClientProvider>)
-    expect(screen.getByText('Acceso en preparación')).toBeInTheDocument()
+    expect(screen.getByRole('heading', { name: 'Ingresá a DataCore' })).toBeInTheDocument()
   })
 
   it.each([
-    ['/dashboard', 'Tu negocio, en perspectiva'],
-    ['/customers', 'Módulo en preparación'],
+    ['/dashboard', 'Dashboard en preparación'],
+    ['/customers', 'Clientes'],
     ['/stores', 'Locales y mapa'],
     ['/uploads', 'Carga de archivos'],
   ])('renders the protected module at %s', async (path, expected) => {
@@ -31,6 +31,6 @@ describe('App', () => {
 
   it('redirects protected routes for anonymous users', () => {
     render(<QueryClientProvider client={queryClient}><MemoryRouter initialEntries={['/customers']}><App /></MemoryRouter></QueryClientProvider>)
-    expect(screen.getByText('Acceso en preparación')).toBeInTheDocument()
+    expect(screen.getByRole('heading', { name: 'Ingresá a DataCore' })).toBeInTheDocument()
   })
 })
