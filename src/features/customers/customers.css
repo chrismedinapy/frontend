@@ -1,0 +1,25 @@
+.customer-toolbar { margin-bottom: 22px; padding: 12px 16px; display: flex; align-items: center; gap: 16px; }
+.customer-toolbar label { flex: 1; display: flex; align-items: center; gap: 10px; }
+.customer-toolbar svg { width: 19px; color: var(--mate); }
+.customer-toolbar input { width: 100%; border: 0; outline: 0; background: transparent; color: var(--ink); }
+.customer-toolbar > span { color: var(--muted); font-size: 13px; font-weight: 700; }
+.customer-form-card { margin-bottom: 22px; border-color: #b8cab5; }
+.customer-form-card form { display: grid; grid-template-columns: .7fr 1fr 1.3fr auto; align-items: end; gap: 16px; }
+.customer-form-card h2 { margin: 0; font-size: 22px; }
+.customer-form-card label { display: grid; gap: 7px; font-size: 12px; font-weight: 800; }
+.customer-form-card input, .customer-form-card textarea { min-height: 43px; padding: 10px 12px; border: 1px solid var(--line); border-radius: 10px; resize: vertical; }
+.customer-form-actions { display: flex; gap: 8px; }
+.customer-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px; }
+.customer-card { position: relative; display: grid; grid-template-columns: 50px 1fr auto; gap: 16px; min-height: 176px; align-items: start; }
+.customer-icon { display: grid; place-items: center; width: 50px; height: 50px; border-radius: 16px; background: #e7eedc; color: var(--forest); }
+.customer-card h2 { margin: 4px 0 8px; font-size: 20px; }
+.customer-card p { color: var(--muted); line-height: 1.55; }
+.customer-card small { color: #89938e; font-size: 10px; }
+.customer-actions { display: flex; gap: 4px; }
+.customer-actions button { display: grid; place-items: center; width: 34px; height: 34px; border: 0; border-radius: 9px; background: transparent; color: var(--muted); }
+.customer-actions button:hover { background: #edf1e9; color: var(--forest); }
+.customer-actions svg { width: 17px; }
+.customer-skeleton { height: 176px; background: linear-gradient(90deg, #f5f6f2, #fff, #f5f6f2); background-size: 200% 100%; animation: customer-pulse 1.2s infinite; }
+@keyframes customer-pulse { to { background-position: -200% 0; } }
+@media (max-width: 1100px) { .customer-form-card form { grid-template-columns: 1fr 1fr; } }
+@media (max-width: 720px) { .customer-grid, .customer-form-card form { grid-template-columns: 1fr; } .customer-card { grid-template-columns: 46px 1fr; } .customer-actions { grid-column: 2; } }
