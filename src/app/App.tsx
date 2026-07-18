@@ -1,12 +1,14 @@
+import { lazy, Suspense } from 'react'
 import { Navigate, Route, Routes } from 'react-router-dom'
 import { AuthPage } from '../features/auth/AuthPage'
 import { CustomersPage } from '../features/customers/CustomersPage'
-import { ReportsDashboard } from '../features/reports/ReportsDashboard'
 import { StoresPage } from '../features/retail-stores/StoresPage'
 import { UploadsPage } from '../features/uploads/UploadsPage'
 import { AppShell } from './AppShell'
 import { ProtectedRoute } from './ProtectedRoute'
 import { session } from '../core/auth/session'
+
+const ReportsDashboard = lazy(() => import('../features/reports/ReportsDashboard'))
 
 export function App() {
   return (
@@ -14,7 +16,7 @@ export function App() {
       <Route path="/login" element={<AuthPage />} />
       <Route path="/signup" element={<AuthPage />} />
       <Route element={<ProtectedRoute><AppShell /></ProtectedRoute>}>
-        <Route path="/dashboard" element={<ReportsDashboard />} />
+        <Route path="/dashboard" element={<Suspense fallback={<p role="status">Cargando indicadores…</p>}><ReportsDashboard /></Suspense>} />
         <Route path="/customers" element={<CustomersPage />} />
         <Route path="/stores" element={<StoresPage />} />
         <Route path="/uploads" element={<UploadsPage />} />
