@@ -15,17 +15,17 @@ describe('App', () => {
   })
 
   it.each([
-    ['/dashboard', 'Dashboard en preparación'],
+    ['/dashboard', 'Tu negocio, en perspectiva'],
     ['/customers', 'Módulo en preparación'],
     ['/stores', 'Locales y mapa'],
     ['/uploads', 'Carga de archivos'],
-  ])('renders the protected module at %s', (path, expected) => {
+  ])('renders the protected module at %s', async (path, expected) => {
     session.write({
       access_token: 'access', refresh_token: 'refresh', token_type: 'Bearer', expires_in: 3600,
       user: { user_code: 'user', name: 'Ana', access_level: 1 },
     })
     render(<QueryClientProvider client={queryClient}><MemoryRouter initialEntries={[path]}><App /></MemoryRouter></QueryClientProvider>)
-    expect(screen.getByRole('heading', { name: expected })).toBeInTheDocument()
+    expect(await screen.findByRole('heading', { name: expected })).toBeInTheDocument()
     expect(screen.getByText('Ana')).toBeInTheDocument()
   })
 
